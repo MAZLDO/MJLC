@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muslim Jewish Learning Collaboration</title>
+    <title>The Muslim Jewish Forum of Greater Manchester</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -602,7 +602,7 @@
                                 <i class="fa-solid fa-handshake"></i>
                             </div>
                             <h3 class="card-title">Dialogue & Understanding</h3>
-                            <p>We create safe spaces for open dialogue between Muslim and Jewish communities, fostering mutual understanding and respect.</p>
+                            <p>We create safe spaces for open dialogue between Muslim and Jewish communities in Greater Manchester, fostering mutual understanding and respect.</p>
                         </div>
                     </div>
                     
@@ -622,7 +622,7 @@
                                 <i class="fa-solid fa-people-group"></i>
                             </div>
                             <h3 class="card-title">Community Building</h3>
-                            <p>We work on projects that benefit the wider community, demonstrating how collaboration can create positive social change.</p>
+                            <p>We work on projects that benefit the wider Manchester community, demonstrating how collaboration can create positive social change.</p>
                         </div>
                     </div>
                     
@@ -632,7 +632,7 @@
                                 <i class="fa-solid fa-scale-balanced"></i>
                             </div>
                             <h3 class="card-title">Social Action</h3>
-                            <p>We engage in social action projects that address common concerns and contribute to the betterment of society.</p>
+                            <p>We engage in social action projects that address common concerns and contribute to the betterment of Manchester.</p>
                         </div>
                     </div>
                 </div>
