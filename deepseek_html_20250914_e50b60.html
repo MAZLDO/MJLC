@@ -1,0 +1,1110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Muslim Jewish Learning Collaboration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary-blue: #2563eb;
+            --primary-green: #16a34a;
+            --dark-blue: #1e40af;
+            --dark-green: #15803d;
+            --light-bg: #f9fafb;
+            --dark-text: #1f2937;
+            --light-text: #f3f4f6;
+            --card-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--light-bg);
+            color: var(--dark-text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .desktop-nav {
+            display: none;
+            gap: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .desktop-nav {
+                display: flex;
+            }
+        }
+        
+        .nav-link {
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            position: relative;
+        }
+        
+        .nav-link:hover {
+            color: var(--primary-blue);
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            transition: width 0.3s;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .mobile-menu-btn {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: #374151;
+            font-size: 1.5rem;
+        }
+        
+        @media (min-width: 768px) {
+            .mobile-menu-btn {
+                display: none;
+            }
+        }
+        
+        .mobile-nav {
+            background-color: #f3f4f6;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+        
+        .mobile-nav.active {
+            max-height: 300px;
+        }
+        
+        .mobile-nav-link {
+            padding: 0.75rem 0;
+            color: #374151;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px solid #e5e7eb;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .mobile-nav-link:last-child {
+            border-bottom: none;
+        }
+        
+        .mobile-nav-link i {
+            width: 24px;
+            text-align: center;
+        }
+        
+        .mobile-nav-link:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Page Content */
+        .page {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .page.active {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .hero-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            animation: fadeInUp 0.8s ease;
+        }
+        
+        .hero-description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-blue);
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            animation: fadeInUp 1.2s ease;
+        }
+        
+        .btn:hover {
+            background-color: #f3f4f6;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            border: 2px solid white;
+            color: white;
+            margin-left: 0.75rem;
+        }
+        
+        .btn-outline:hover {
+            background: white;
+            color: var(--primary-blue);
+        }
+        
+        /* Content Sections */
+        .section {
+            padding: 4rem 1rem;
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--dark-text);
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary-blue), var(--primary-green));
+            border-radius: 2px;
+        }
+        
+        .card-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .card-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .card-grid-3 {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .card {
+            background-color: white;
+            border-radius: 0.75rem;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card-content {
+            padding: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.75rem;
+            color: var(--dark-text);
+        }
+        
+        .card-icon {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        /* Events */
+        .event-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .event-item {
+            background: white;
+            border-radius: 0.75rem;
+            padding: 1.5rem;
+            box-shadow: var(--card-shadow);
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+        
+        .event-date {
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            color: white;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            text-align: center;
+            min-width: 80px;
+        }
+        
+        .event-day {
+            font-size: 1.5rem;
+            font-weight: 700;
+            line-height: 1;
+        }
+        
+        .event-month {
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            margin-top: 0.25rem;
+        }
+        
+        .event-details {
+            flex: 1;
+        }
+        
+        .event-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .event-location {
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        /* Team */
+        .team-grid {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 640px) {
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        @media (min-width: 1024px) {
+            .team-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .team-member {
+            text-align: center;
+        }
+        
+        .team-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-blue), var(--primary-green));
+            margin: 0 auto 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 2.5rem;
+        }
+        
+        .team-name {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+        
+        .team-role {
+            color: #6b7280;
+            font-size: 0.875rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #1f2937;
+            color: #e5e7eb;
+            padding: 3rem 1rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+        
+        .footer-about {
+            margin-bottom: 1.5rem;
+        }
+        
+        .footer-heading {
+            font-weight: 600;
+            margin-bottom: 1rem;
+            font-size: 1.125rem;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        
+        .footer-link {
+            color: #e5e7eb;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .footer-link:hover {
+            color: white;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        
+        .social-link:hover {
+            background: var(--primary-blue);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid #374151;
+            color: #9ca3af;
+        }
+        
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .animated {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <a href="#" class="logo" onclick="showPage('home')">
+                <div class="logo-img">
+                    <i class="fa-solid fa-hands-holding-circle"></i>
+                </div>
+                <span>MJLC</span>
+            </a>
+            
+            <nav class="desktop-nav">
+                <a href="#" class="nav-link" onclick="showPage('home')"><i class="fa-solid fa-house"></i> Home</a>
+                <a href="#" class="nav-link" onclick="showPage('about')"><i class="fa-solid fa-circle-info"></i> About</a>
+                <a href="#" class="nav-link" onclick="showPage('events')"><i class="fa-solid fa-calendar-days"></i> Events</a>
+                <a href="#" class="nav-link" onclick="showPage('projects')"><i class="fa-solid fa-lightbulb"></i> Projects</a>
+                <a href="#" class="nav-link" onclick="showPage('resources')"><i class="fa-solid fa-book"></i> Resources</a>
+                <a href="#" class="nav-link" onclick="showPage('contact')"><i class="fa-solid fa-envelope"></i> Contact</a>
+            </nav>
+            
+            <button class="mobile-menu-btn" id="menuBtn">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
+        
+        <div class="mobile-nav" id="mobileNav">
+            <a href="#" class="mobile-nav-link" onclick="showPage('home')"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('about')"><i class="fa-solid fa-circle-info"></i> About</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('events')"><i class="fa-solid fa-calendar-days"></i> Events</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('projects')"><i class="fa-solid fa-lightbulb"></i> Projects</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('resources')"><i class="fa-solid fa-book"></i> Resources</a>
+            <a href="#" class="mobile-nav-link" onclick="showPage('contact')"><i class="fa-solid fa-envelope"></i> Contact</a>
+        </div>
+    </header>
+    
+    <!-- Home Page -->
+    <div id="home" class="page active">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">Building Bridges Between Muslim and Jewish Communities</h1>
+                <p class="hero-description">
+                    Through learning, dialogue, and shared experiences, we foster understanding and respect across communities.
+                </p>
+                <div>
+                    <a href="#" class="btn" onclick="showPage('about')">Learn More</a>
+                    <a href="#" class="btn btn-outline" onclick="showPage('contact')">Get Involved</a>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Features Section -->
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Mission</h2>
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <h3 class="card-title">Dialogue & Understanding</h3>
+                            <p>We create safe spaces for open dialogue between Muslim and Jewish communities, fostering mutual understanding and respect.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <h3 class="card-title">Joint Learning</h3>
+                            <p>We organize study sessions where participants learn about both traditions, exploring shared values and different perspectives.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-people-group"></i>
+                            </div>
+                            <h3 class="card-title">Community Building</h3>
+                            <p>We work on projects that benefit the wider community, demonstrating how collaboration can create positive social change.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-scale-balanced"></i>
+                            </div>
+                            <h3 class="card-title">Social Action</h3>
+                            <p>We engage in social action projects that address common concerns and contribute to the betterment of society.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Upcoming Events -->
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                
+                <div class="event-list">
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">15</div>
+                            <div class="event-month">Sep</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Interfaith Iftar Dinner</h3>
+                            <div class="event-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Community Center, London</span>
+                            </div>
+                            <p>Join us for a special Iftar dinner during Ramadan, where we'll break bread together and share stories of our traditions.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">22</div>
+                            <div class="event-month">Sep</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Text Study Session: Hospitality</h3>
+                            <div class="event-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Online Event</span>
+                            </div>
+                            <p>Explore Jewish and Islamic texts on the value of hospitality in our traditions and what it means today.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div style="text-align: center; margin-top: 2rem;">
+                    <a href="#" class="btn" onclick="showPage('events')">View All Events</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- About Page -->
+    <div id="about" class="page">
+        <section class="hero" style="background: linear-gradient(to right, #1e40af, #15803d);">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">About Us</h1>
+                <p class="hero-description">
+                    Learn about our mission, values, and the team behind the Muslim Jewish Learning Collaboration.
+                </p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Story</h2>
+                
+                <div class="card">
+                    <div class="card-content">
+                        <p>The Muslim Jewish Learning Collaboration (MJLC) was established in 2010 with the goal of building bridges between the Muslim and Jewish communities in the UK through education, dialogue, and collaborative social action.</p>
+                        <br>
+                        <p>We believe that by learning about each other's traditions, values, and practices in an atmosphere of mutual respect, we can break down stereotypes, build trust, and develop lasting friendships.</p>
+                        <br>
+                        <p>Our activities include text study sessions, social events, community projects, and public discussions on issues of common concern.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section" style="background-color: #f3f4f6;">
+            <div class="container">
+                <h2 class="section-title">Our Team</h2>
+                
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-img">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Dr. Amina Khan</h3>
+                        <p class="team-role">Co-Director</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-img">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Rabbi David Cohen</h3>
+                        <p class="team-role">Co-Director</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-img">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Sarah Johnson</h3>
+                        <p class="team-role">Program Coordinator</p>
+                    </div>
+                    
+                    <div class="team-member">
+                        <div class="team-img">
+                            <i class="fa-solid fa-user"></i>
+                        </div>
+                        <h3 class="team-name">Imran Ahmed</h3>
+                        <p class="team-role">Community Outreach</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Events Page -->
+    <div id="events" class="page">
+        <section class="hero" style="background: linear-gradient(to right, #1e40af, #15803d);">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">Events</h1>
+                <p class="hero-description">
+                    Join our upcoming events and become part of the conversation.
+                </p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Upcoming Events</h2>
+                
+                <div class="event-list">
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">15</div>
+                            <div class="event-month">Sep</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Interfaith Iftar Dinner</h3>
+                            <div class="event-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Community Center, London</span>
+                            </div>
+                            <p>Join us for a special Iftar dinner during Ramadan, where we'll break bread together and share stories of our traditions.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Register</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">22</div>
+                            <div class="event-month">Sep</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Text Study Session: Hospitality</h3>
+                            <div class="event-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Online Event</span>
+                            </div>
+                            <p>Explore Jewish and Islamic texts on the value of hospitality in our traditions and what it means today.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Register</a>
+                        </div>
+                    </div>
+                    
+                    <div class="event-item">
+                        <div class="event-date">
+                            <div class="event-day">05</div>
+                            <div class="event-month">Oct</div>
+                        </div>
+                        <div class="event-details">
+                            <h3 class="event-title">Community Service Day</h3>
+                            <div class="event-location">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>City Food Bank, London</span>
+                            </div>
+                            <p>Join us as we volunteer together at a local food bank, putting our shared values into action.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Register</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Projects Page -->
+    <div id="projects" class="page">
+        <section class="hero" style="background: linear-gradient(to right, #1e40af, #15803d);">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">Projects</h1>
+                <p class="hero-description">
+                    Discover our collaborative initiatives that make a difference.
+                </p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Our Projects</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-book-open"></i>
+                            </div>
+                            <h3 class="card-title">Scriptural Reasoning</h3>
+                            <p>Regular sessions where participants explore texts from both the Quran and Jewish scriptures, discovering shared values and different perspectives.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-utensils"></i>
+                            </div>
+                            <h3 class="card-title">Community Dinners</h3>
+                            <p>Shared meals where members of both communities come together to build relationships and celebrate each other's traditions and holidays.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-hand-holding-heart"></i>
+                            </div>
+                            <h3 class="card-title">Social Action</h3>
+                            <p>Collaborative projects addressing food poverty, homelessness, and other social issues that affect our wider community.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <h3 class="card-title">Youth Programs</h3>
+                            <p>Initiatives that bring together young people from Muslim and Jewish backgrounds to learn, discuss, and build a better future together.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Resources Page -->
+    <div id="resources" class="page">
+        <section class="hero" style="background: linear-gradient(to right, #1e40af, #15803d);">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">Resources</h1>
+                <p class="hero-description">
+                    Educational materials to support interfaith learning and dialogue.
+                </p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Learning Resources</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-file-lines"></i>
+                            </div>
+                            <h3 class="card-title">Study Guides</h3>
+                            <p>Download our comprehensive study guides for text study sessions, including selected passages from both traditions with discussion questions.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Download</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-video"></i>
+                            </div>
+                            <h3 class="card-title">Video Library</h3>
+                            <p>Access recordings of our past events, lectures, and discussions on various topics related to Muslim-Jewish relations.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Watch</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-book"></i>
+                            </div>
+                            <h3 class="card-title">Reading Lists</h3>
+                            <p>Explore our curated reading lists with books, articles, and papers on interfaith dialogue, Islamic studies, and Jewish studies.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">View</a>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="card-icon">
+                                <i class="fa-solid fa-chalkboard-user"></i>
+                            </div>
+                            <h3 class="card-title">Educator Resources</h3>
+                            <p>Materials for teachers and community leaders who want to facilitate interfaith learning in their own communities.</p>
+                            <a href="#" class="btn" style="margin-top: 1rem;">Access</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Contact Page -->
+    <div id="contact" class="page">
+        <section class="hero" style="background: linear-gradient(to right, #1e40af, #15803d);">
+            <div class="container hero-content">
+                <h1 class="hero-title animated">Contact Us</h1>
+                <p class="hero-description">
+                    Get in touch to learn more or get involved with our work.
+                </p>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <h2 class="section-title">Get In Touch</h2>
+                
+                <div class="card-grid">
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">Contact Information</h3>
+                            <p>We'd love to hear from you. Reach out to us through any of the following channels:</p>
+                            <br>
+                            <p><i class="fa-solid fa-envelope"></i> <strong>Email:</strong> info@muslimjewish.org.uk</p>
+                            <br>
+                            <p><i class="fa-solid fa-phone"></i> <strong>Phone:</strong> +44 20 1234 5678</p>
+                            <br>
+                            <p><i class="fa-solid fa-location-dot"></i> <strong>Address:</strong> 123 Bridge Street, London, UK</p>
+                            <br>
+                            <div class="social-links">
+                                <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                                <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card">
+                        <div class="card-content">
+                            <h3 class="card-title">Send Us a Message</h3>
+                            <form>
+                                <div style="margin-bottom: 1rem;">
+                                    <label for="name" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Name</label>
+                                    <input type="text" id="name" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <label for="email" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Email</label>
+                                    <input type="email" id="email" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem;">
+                                </div>
+                                <div style="margin-bottom: 1rem;">
+                                    <label for="message" style="display: block; margin-bottom: 0.5rem; font-weight: 500;">Message</label>
+                                    <textarea id="message" rows="4" style="width: 100%; padding: 0.75rem; border: 1px solid #d1d5db; border-radius: 0.375rem;"></textarea>
+                                </div>
+                                <button type="submit" class="btn">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div>
+                    <div class="footer-logo">
+                        <div class="logo-img">
+                            <i class="fa-solid fa-hands-holding-circle"></i>
+                        </div>
+                        <span>MJLC</span>
+                    </div>
+                    <p class="footer-about">The Muslim Jewish Learning Collaboration builds bridges between communities through dialogue, education, and shared action.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fa-brands fa-twitter"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fa-brands fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Quick Links</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link" onclick="showPage('home')"><i class="fa-solid fa-house"></i> Home</a>
+                        <a href="#" class="footer-link" onclick="showPage('about')"><i class="fa-solid fa-circle-info"></i> About</a>
+                        <a href="#" class="footer-link" onclick="showPage('events')"><i class="fa-solid fa-calendar-days"></i> Events</a>
+                        <a href="#" class="footer-link" onclick="showPage('projects')"><i class="fa-solid fa-lightbulb"></i> Projects</a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="footer-heading">Contact Info</h3>
+                    <div class="footer-links">
+                        <a href="#" class="footer-link"><i class="fa-solid fa-envelope"></i> info@muslimjewish.org.uk</a>
+                        <a href="#" class="footer-link"><i class="fa-solid fa-phone"></i> +44 20 1234 5678</a>
+                        <a href="#" class="footer-link"><i class="fa-solid fa-location-dot"></i> 123 Bridge Street, London</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>© 2023 Muslim Jewish Learning Collaboration. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu functionality
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        
+        menuBtn.addEventListener('click', () => {
+            mobileNav.classList.toggle('active');
+            
+            // Change icon based on menu state
+            const icon = menuBtn.querySelector('i');
+            if (mobileNav.classList.contains('active')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-x');
+            } else {
+                icon.classList.remove('fa-x');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            document.getElementById(pageId).classList.add('active');
+            
+            // Close mobile menu if open
+            if (mobileNav.classList.contains('active')) {
+                mobileNav.classList.remove('active');
+                const icon = menuBtn.querySelector('i');
+                icon.classList.remove('fa-x');
+                icon.classList.add('fa-bars');
+            }
+            
+            // Scroll to top
+            window.scrollTo(0, 0);
+        }
+        
+        // Initialize animations
+        document.addEventListener('DOMContentLoaded', function() {
+            const animatedElements = document.querySelectorAll('.animated');
+            
+            animatedElements.forEach(element => {
+                element.style.opacity = '0';
+            });
+            
+            setTimeout(() => {
+                animatedElements.forEach(element => {
+                    element.style.opacity = '1';
+                });
+            }, 100);
+        });
+    </script>
+</body>
+</html>
